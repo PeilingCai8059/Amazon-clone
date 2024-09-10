@@ -27,7 +27,7 @@ products.forEach((product)=>{
           <div class="product-price">$${(product.priceCents / 100).toFixed(2)}</div>
 
           <div class="product-quantity-container">
-            <select>
+            <select class = "js-quantity-selector-${product.id}">
               <option selected value="1">1</option>
               <option value="2">2</option>
               <option value="3">3</option>
@@ -41,7 +41,7 @@ products.forEach((product)=>{
             </select>
           </div>
 
-          <div class="add-to-cart">
+          <div class="add-to-cart js-add-to-cart-${product.id}">
             <img src="images/icons/checkmark.png" >
             added
           </div>
@@ -58,17 +58,23 @@ document.querySelectorAll('.js-add-cart').forEach((button) => {
     button.addEventListener('click',() => {
         const productId = button.dataset.productId;
         let matchingItem ;
+        const quantityAddOn = document.querySelector(`.js-quantity-selector-${productId}`).value;
+        const addedMeg = document.querySelector(`.js-add-to-cart-${productId}`);
+        addedMeg.classList.add('add-to-cart-clicked');
+        setTimeout(() => addedMeg.classList.remove('add-to-cart-clicked'), 1500);
+        
         cart.forEach( item =>{
             if(item.productId === productId){
                 matchingItem = item;
             }
         })
         if(matchingItem){
-            matchingItem.quantity += 1;
+            matchingItem.quantity += Number(quantityAddOn);
+            console.log(matchingItem.quantity);
         }else{
             cart.push({
                 productId : productId,
-                quantity : 1
+                quantity : Number(quantityAddOn)
             });
         }
 
