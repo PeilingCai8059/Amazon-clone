@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracking</title>
+     <!-- Roboto from google font -->
+     <link rel="preconnect" href="https://fonts.googleapis.com" />
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+     <link
+       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+       rel="stylesheet"
+     />
+ 
+     <link rel="stylesheet" href="styles/general.css" />
+     <link rel="stylesheet" href="styles/amazon-header.css" />
+     <link rel="stylesheet" href="styles/tracking.css">
+</head>
+<body>
+    <header class="amazon-header">
+        <div class="amazon-header-left">
+          <a href="amazon.html" class="header-link">
+            <img src="images/amazon-logo-white.png" class="amazon-logo" />
+            <img
+              src="images/amazon-mobile-logo-white.png"
+              class="amazon-mobile-logo"
+            />
+          </a>
+        </div>
+  
+        <div class="amazon-header-middle">
+          <input type="text" class="search-bar" placeholder=" Search" />
+          <button class="search-button">
+            <img src="images/icons/search-icon.png" class="search-icon" />
+          </button>
+        </div>
+  
+        <div class="amazon-header-right">
+          <a class="order-link" href="orders.html">
+            <div class="return-text">Returns</div>
+            <div class="orders-text">& Orders</div>
+          </a>
+          <a href="checkout.html" class="cart-link">
+            <img src="images/icons/cart-icon.png" class="cart-icon" />
+            <div class="cart-quantity">0</div>
+            <div class="cart-text">Cart</div>
+          </a>
+        </div>
+      </header>
+
+      <main class="tracking-main">
+
+        <a href="order.html" class="back-to-orders-link">View all orders</a>
+        <div class="tracking-container">
+            <div class="delivery-date">
+                Arriving on Monday, June 13
+            </div>
+            <div class="product-info">
+                Black and Gray Athletic Cotton Socks - 6 Pairs
+            </div>
+            <div class="product-info">
+                Quantity: 1
+            </div>
+            <img src="images/products/athletic-cotton-socks-6-pairs.jpg" class="product-image">
+          
+            <div class="progress-lables-container">
+                <div class="progress-label current-status">Preparing</div>
+                <div class="progress-label">Shipped</div>
+                <div class="progress-label">Delivered</div>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar"></div>
+              </div>
+        </div>
+        
+    </main>
+</body>
+</html>
