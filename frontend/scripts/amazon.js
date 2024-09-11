@@ -1,8 +1,10 @@
+import { cart , addToCart } from "../data/cart.js";
+import { products } from "../data/products.js";
 
 let productHtml = ``;
 
-products.forEach((product)=>{
-    productHtml += `
+products.forEach((product) => {
+  productHtml += `
     <div class="product-container">
           <div class="product-image-container">
             <img
@@ -24,7 +26,9 @@ products.forEach((product)=>{
             <div class="product-rating-count">${product.rating.count}</div>
           </div>
 
-          <div class="product-price">$${(product.priceCents / 100).toFixed(2)}</div>
+          <div class="product-price">$${(product.priceCents / 100).toFixed(
+            2
+          )}</div>
 
           <div class="product-quantity-container">
             <select class = "js-quantity-selector-${product.id}">
@@ -46,43 +50,37 @@ products.forEach((product)=>{
             added
           </div>
 
-          <button class="add-to-cart-button button-primary js-add-cart" data-product-id = "${product.id}">
+          <button class="add-to-cart-button button-primary js-add-cart" data-product-id = "${
+            product.id
+          }">
             Add to Cart
           </button>
         </div>
-    `
+    `;
 });
 
-document.querySelector('.js-product-grid').innerHTML = productHtml;
-document.querySelectorAll('.js-add-cart').forEach((button) => {
-    button.addEventListener('click',() => {
+function updateCartQuantity(){
+    let cartQuantity = 0;
+    cart.forEach((item) => {
+      cartQuantity += item.quantity;
+    });
+    document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+}
+
+
+document.querySelector(".js-product-grid").innerHTML = productHtml;
+document.querySelectorAll(".js-add-cart").forEach((button) => {
+    button.addEventListener("click", () => {
         const productId = button.dataset.productId;
-        let matchingItem ;
+
         const quantityAddOn = document.querySelector(`.js-quantity-selector-${productId}`).value;
+
         const addedMeg = document.querySelector(`.js-add-to-cart-${productId}`);
-        addedMeg.classList.add('add-to-cart-clicked');
-        setTimeout(() => addedMeg.classList.remove('add-to-cart-clicked'), 1500);
+        addedMeg.classList.add("add-to-cart-clicked");
+        setTimeout(() => addedMeg.classList.remove("add-to-cart-clicked"), 1500);
+
+        addToCart(productId, quantityAddOn);
+        updateCartQuantity();
         
-        cart.forEach( item =>{
-            if(item.productId === productId){
-                matchingItem = item;
-            }
-        })
-        if(matchingItem){
-            matchingItem.quantity += Number(quantityAddOn);
-            console.log(matchingItem.quantity);
-        }else{
-            cart.push({
-                productId : productId,
-                quantity : Number(quantityAddOn)
-            });
-        }
-
-        let cartQuantity = 0;
-        cart.forEach(item => {
-            cartQuantity += item.quantity;
-        })
-
-        document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-    })
-})
+    });
+});
