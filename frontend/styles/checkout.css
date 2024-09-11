@@ -54,7 +54,7 @@
     gap:25px
 }
 .cart-item-detail img{
-    max-width: 100%;
+    max-width: 100px;
     max-height: 100px;
     margin-left: auto ;
     margin-right:auto;
@@ -72,6 +72,12 @@
 .update-quantity-link, .delete-quantity-link{
     color:rgb(53, 137, 168);
 }
+.update-quantity-link:hover, .delete-quantity-link:hover{
+    cursor: pointer;
+    color:  rgb(248, 166, 34) ;
+}
+
+
 .delivery-options-title{
     font-weight: 700;
     margin-bottom: 10px;
