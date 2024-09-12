@@ -1,17 +1,23 @@
-import {deliveryOptions} from "./deliveryOptions.js";
 import { products } from "./products.js";
 
-export let cart = JSON.parse(localStorage.getItem('cart'));
-if(!cart){
+export let cart;
+
+loadFromStorage();
+
+export function loadFromStorage() {
+  cart = JSON.parse(localStorage.getItem('cart'));
+
+  if (!cart) {
     cart = [];
+  }
 }
 
 
-function saveToStorage(){
+export function saveToStorage(){
     localStorage.setItem('cart',JSON.stringify(cart));
 }
 
-export function addToCart(productId, quantityAddOn) {
+export function addToCart(productId, quantityAddOn = 1) {
     let matchingItem;
     cart.forEach((item) => {
         if (item.productId === productId) {
