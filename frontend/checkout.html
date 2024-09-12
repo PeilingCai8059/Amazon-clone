@@ -42,28 +42,28 @@
                 <div class="payment-summary-titil">Order Summary</div>
                 <div class="payment-summary-row">
                     <div>Item (2)</div>
-                    <div class="payment-summary-row-money">$42.75</div>
+                    <div class="payment-summary-row-money js-payment-selling-price">$0</div>
                 </div>
                 <div class="payment-summary-row">
                     <div>Shipping & handling</div>
-                    <div class="payment-summary-row-money sub-total-row">$4.99</div>
+                    <div class="payment-summary-row-money sub-total-row js-payment-shipping-price">$0</div>
                 </div>
                 <div class="payment-summary-row">
                     <div>Total before tax:</div>
-                    <div class="payment-summary-row-money">$47.74</div>
+                    <div class="payment-summary-row-money js-payment-subtotal">$0</div>
                 </div>
                 <div class="payment-summary-row">
                     <div>Estimated tax(10%)</div>
-                    <div class="payment-summary-row-money">$4.77</div>
+                    <div class="payment-summary-row-money js-payment-tax">$0</div>
                 </div>
                 <hr class="total-row-divider" />
                 <div class="payment-summary-row total-row">
                     <div>Order total:</div>
-                    <div class="payment-summary-row-money">$47.74</div>
+                    <div class="payment-summary-row-money js-payment-total">$0</div>
                 </div>
 
                 <a href="order.html">
-                    <button class="place-order-button button-primary">
+                    <button class="place-order-button button-primary"> 
                         Place your order
                     </button>
                 </a>
@@ -72,7 +72,7 @@
         </div>
     </main>
 </body>
-
+<script src="https://unpkg.com/dayjs@1.11.10/dayjs.min.js"></script>
 <script type="module" src="scripts/checkout.js"></script>
 
 </html>

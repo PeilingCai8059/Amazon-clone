@@ -2,6 +2,7 @@ import { cart , addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { formatCurrency } from "./utils/money.js";
 
+updateCartQuantity();
 let productHtml = ``;
 
 products.forEach((product) => {
@@ -59,11 +60,18 @@ products.forEach((product) => {
 });
 
 function updateCartQuantity(){
+    const cartQuantityDom = document.querySelector(".js-cart-quantity");
     let cartQuantity = 0;
     cart.forEach((item) => {
       cartQuantity += item.quantity;
     });
-    document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
+    if(cartQuantity != 0){
+        cartQuantityDom.innerHTML = cartQuantity;
+    }else{
+        cartQuantityDom.style.marginRight = "5px";
+        cartQuantityDom.innerHTML = ' ';
+    }
+    
 }
 
 

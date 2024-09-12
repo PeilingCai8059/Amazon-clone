@@ -29,6 +29,7 @@
     border-radius: 5px;
     margin-bottom: 20px;        
 }
+
 .payment-summary{
     max-height: 300px;
 }
@@ -69,12 +70,30 @@
     margin-bottom: 10px;
     color: rgb(169, 3, 3);
 }
-.update-quantity-link, .delete-quantity-link{
+.cartItem-quantity-input{
+    width: 25px;
+    height: 20px;
+    border: 2px solid rgb(248, 166, 34) ;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.update-quantity-link, .save-quantity-link, .delete-quantity-link{
     color:rgb(53, 137, 168);
 }
-.update-quantity-link:hover, .delete-quantity-link:hover{
+.update-quantity-link:hover, .save-quantity-link:hover, .delete-quantity-link:hover{
     cursor: pointer;
-    color:  rgb(248, 166, 34) ;
+    color:  rgb(248, 105, 34) ;
+}
+.save-quantity-link{
+    display: none;
+}
+.is-editing .js-update-link{
+    display: none;
+}
+.is-editing .js-save-link{
+    display: inline;
 }
 
 
